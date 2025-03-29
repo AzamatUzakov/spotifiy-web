@@ -9,11 +9,9 @@ interface BaseLayout {
 const BaseLayout: React.FC<BaseLayout> = () => {
     return (
         <>
-            <header>Base Header</header>
             <main>
                 <Outlet />
             </main>
-            <footer>Base Footer</footer>
 
         </>
     );

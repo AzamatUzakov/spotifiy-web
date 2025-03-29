@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import BaseLayout from './layouts/BaseLayout'
-import SignIn from './pages/SignIn.'
+import SignIn from './pages/SignIn'
 import AuthorizedLayout from './layouts/AuthorizedLayout'
 import Home from "@/pages/Home"
 
