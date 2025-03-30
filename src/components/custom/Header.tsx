@@ -19,7 +19,7 @@ const Header: React.FC<HeaderProps> = () => {
     return (
         <>
             <div>
-                <header className="flex items-center p-3 justify-between">
+                <header className="flex items-center p-4 justify-between">
                     <h1 className="font-semibold">Добрый день</h1>
 
                     <div className="">
