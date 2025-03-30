@@ -1,7 +1,15 @@
+
 #root {
-  background-color: #121212;
+  background-color: rgb(18 18 18);
   color: white;
-  height: 100vh;
+  height: 100%;
   font-family: 'Gotham', 'Helvetica Neue', Arial, sans-serif;
-  
+    --encore-body-font-stack: "Circular", "Gotham", "Helvetica Neue", Arial, sans-serif;
+}
+body {
+  font-family: var(--encore-body-font-stack, sans-serif);
+}
+
+.my-text {
+  font-family: var(--encore-body-font-stack, sans-serif);
 }
