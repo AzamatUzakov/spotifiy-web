@@ -12,7 +12,7 @@ const Navigate: React.FC<NavigateProps> = () => {
     return (
         <>
 
-            <div className="flex justify-between text-sm  px-3 items-center">
+            <div className="flex justify-between text-sm  px-3 items-center md:hidden">
                 <div className="flex flex-col items-center w-[80px] text-center">
                     <IoHomeOutline size={25} />
                     <p>Главная</p>
