@@ -14,7 +14,7 @@ const Sidebar: React.FC<SidebarProps> = () => {
     return (
         <>
             <div className="hidden lg:block">
-                {isOpen ? <ResizablePanel className=" w-full h-screen my-text bg-[#121212] px-3 py-4 rounded-[10px] m-2 transition-all duration-400 ease-in-out" defaultSize={22} maxSize={40} minSize={10}>
+                {isOpen ? <ResizablePanel className=" w-full h-screen my-text cursor-pointer bg-[#121212] px-3 py-4 rounded-[10px] m-2 transition-all duration-400 ease-in-out" defaultSize={22} maxSize={40} minSize={10}>
 
                     < div className="w-full" >
                         <div className="flex items-center justify-between w-full">
@@ -43,7 +43,7 @@ const Sidebar: React.FC<SidebarProps> = () => {
 
                     <ResizablePanel className="w-[65px] h-screen my-text bg-[#121212] px-3 py-4 rounded-[10px]">
                         <div className="flex flex-col items-center justify-center gap-5">
-                            <TfiLayoutMediaCenterAlt size={25} onClick={() => setIsOpen(!isOpen)} />
+                            <TfiLayoutMediaCenterAlt className="cursor-pointer" size={25} onClick={() => setIsOpen(!isOpen)} />
                             <div className="bg-[#1f1f1f] p-1 rounded-3xl">
                                 <FiPlus size={25} />
 

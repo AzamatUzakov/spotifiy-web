@@ -55,35 +55,35 @@ const Header: React.FC<HeaderProps> = () => {
                         </Sheet>
                     </div>
 
-                        <div className="hidden md:flex items-center gap-8">
-                            <img src="/logo.png" alt="logo" className="w-[30px]" />
+                    <div className="hidden md:flex items-center gap-8">
+                        <img src="/logo.png" alt="logo" className="w-[30px] hover:opacity-80 transition-opacity" />
 
-                            <div className="flex items-center gap-2">
-                                <div className="bg-[#1f1f1f] rounded-4xl p-2"><GoHome size={25} color="white" /></div>
+                        <div className="flex items-center gap-2">
+                            <div className="bg-[#1f1f1f] rounded-4xl p-2 hover:bg-[#292929] transition-colors">
+                                <GoHome size={25} color="white" />
+                            </div>
 
-                                <div className="flex items-center bg-[#1f1f1f] border border-[#3a3a3a] rounded-full px-4 py-1 w-full">
-                                    <FiSearch size={25} className="text-gray-400" />
-                                    <Input
-                                        className="bg-transparent border-0 focus:ring-0 text-white placeholder:text-gray-500 flex-grow px-3"
-                                        placeholder="Что хочешь включить?"
-                                    />
-                                    <MdPreview size={25} className="text-gray-400" />
-                                </div>
-
+                            <div className="flex items-center bg-[#1f1f1f] border border-[#3a3a3a] rounded-full px-4 py-1 w-full hover:border-gray-500 transition-colors">
+                                <FiSearch size={25} className="text-gray-400 hover:text-white transition-colors" />
+                                <Input
+                                    className="bg-transparent border-0 focus:ring-0 text-white placeholder:text-gray-500 flex-grow px-3 hover:placeholder:text-gray-400 transition-colors"
+                                    placeholder="Что хочешь включить?"
+                                />
+                                <MdPreview size={25} className="text-gray-400 hover:text-white transition-colors" />
                             </div>
                         </div>
+                    </div>
 
-                        <div className="hidden md:flex items-center gap-5">
-                            <div className="flex items-center text-[#878787] font-bold text-[13px] gap-1 cursor-pointer">
-                                <BsArrowDownCircle size={13} color="#878787" />Устоновить приложение
-                            </div>
-                            <FaRegBell size={18} color="#878787" />
-                            <Avatar >
-                                <AvatarImage src="https://github.com/shadcn.png" />
-                                <AvatarFallback>CN</AvatarFallback>
-                            </Avatar>
-
+                    <div className="hidden md:flex items-center gap-5">
+                        <div className="flex items-center text-[#878787] font-bold text-[13px] gap-1 cursor-pointer hover:text-white transition-colors">
+                            <BsArrowDownCircle size={13} className="hover:text-white transition-colors" />Устоновить приложение
                         </div>
+                        <FaRegBell size={18} className="text-[#878787] hover:text-white transition-colors" />
+                        <Avatar className="hover:opacity-80 transition-opacity">
+                            <AvatarImage src="https://github.com/shadcn.png" />
+                            <AvatarFallback>CN</AvatarFallback>
+                        </Avatar>
+                    </div>
 
 
 

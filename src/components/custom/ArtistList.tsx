@@ -51,8 +51,7 @@ const ArtistsList: React.FC = () => {
             <h2 className="text-2xl font-bold mb-4">Список артистов</h2>
             <div className="flex gap-x-4 overflow-x-auto whitespace-nowrap scroll-smooth snap-x snap-mandatory scrollbar-hidde">
                 {artists.map((art) => (
-                    <div key={art.id} className=" min-w-[150px] h-[200px]  md:min-w-[180px] h-[300px] snap-center">
-                        {art.images.length > 0 ? (
+                    <div key={art.id} className="min-w-[150px] h-[200px] md:min-w-[180px] h-[300px] snap-center hover:scale-96 transition-transform cursor-pointer" >                        {art.images.length > 0 ? (
                             <img
                                 src={art.images[0].url}
                                 alt={art.name}

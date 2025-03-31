@@ -22,7 +22,7 @@ const AuthorizedLayout: React.FC<AuthorizedLayout> = () => {
             <ResizablePanelGroup direction="horizontal" className="bg-black flex gap-3" >
                 <Sidebar />
                 <ResizableHandle className="hidden lg:flex" />
-                <ResizablePanel className="flex-1 min-h-0 overflow-y-scroll">
+                <ResizablePanel className="flex-1 min-h-0 overflow-y-scroll bg-[#121212] rounded-[10px] mt-2">
                     <Outlet />
                     <Footer />
 
