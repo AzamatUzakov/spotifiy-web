@@ -35,7 +35,7 @@ const AuthorizedLayout: React.FC<AuthorizedLayout> = () => {
 
             <div className="fixed bottom-0 left-0 w-full bg-black py-2 md:py-0">
                 {/* <Player /> */}
-                <Player />
+                {/* <Player /> */}
                 <Navigate />
 
             </div>
