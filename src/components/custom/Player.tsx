@@ -12,7 +12,7 @@ const Player: React.FC<PlayerProps> = () => {
     };
 
     return (
-        <div className="left-0 w-full h-14  bg-[rgb(8,32,64)] px-4 flex items-center justify-between text-white mb-0 md:px-6">
+        <div className="left-0 w-full h-14 relative z-30  bg-[rgb(8,32,64)] px-4 flex items-center justify-between text-white mb-0 md:px-6">
             <div className="flex items-center gap-4 w-1/3">
                 <img src="https://i.scdn.co/image/ab6761610000e5eb4a21b4760d2ecb7b0dcdc8da" alt="song-cover" className="w-9 h-9 rounded-md object-cover" />
                 <div className="flex flex-col">

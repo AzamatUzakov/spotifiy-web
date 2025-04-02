@@ -12,12 +12,11 @@ function App() {
 
       <Routes>
 
-        <Route path='/' element={<BaseLayout />}>
-          <Route index element={<SignIn />} />
-        </Route>
+        <Route path="/login" element={<SignIn />} />
+        <Route path='base' element={<BaseLayout />}/>
 
 
-        <Route path='/me'  element={<AuthorizedLayout />}>
+        <Route path='/' element={<AuthorizedLayout />}>
           <Route index element={<Home />} />
         </Route>
 

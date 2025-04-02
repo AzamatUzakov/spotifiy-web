@@ -9,7 +9,7 @@ interface Artist {
     images: { url: string }[];
 }
 
-const ArtistsList: React.FC = () => {
+const MyAlbum: React.FC = () => {
     const [artists, setArtists] = useState<Artist[]>([]);
 
     const token: string = localStorage.getItem("token") || " ";
@@ -41,7 +41,7 @@ const ArtistsList: React.FC = () => {
 
     return (
         <div className="p-4">
-            <h2 className="text-2xl font-bold mb-4">Для вас</h2>
+            <h2 className="text-2xl font-bold mb-4">Ваш альбом</h2>
           {  <div className="flex gap-x-4 overflow-x-auto whitespace-nowrap scroll-smooth snap-x snap-mandatory scrollbar-hidde">
                 {artists.map((art) => (
                     <div key={art.id} className="min-w-[150px] md:min-w-[180px]  snap-center hover:scale-96 transition-transform cursor-pointer" >                        {art.images.length > 0 ? (
@@ -61,4 +61,4 @@ const ArtistsList: React.FC = () => {
     );
 };
 
-export default ArtistsList;
+export default MyAlbum;

@@ -1,19 +1,22 @@
 import { Button } from "@/components/ui/button";
-import React from "react";
-import { Outlet } from "react-router-dom";
+import React, { createContext } from "react";
+import { Link, Outlet } from "react-router-dom";
 
 interface BaseLayout {
 
 }
+export const tokenCTX  = createContext<string>("");
 
 const BaseLayout: React.FC<BaseLayout> = () => {
-    return (
-        <>
-            <main>
-                <Outlet />
-            </main>
+    const token: string = localStorage.getItem("token") || " ";
+console.log(token); 
 
-        </>
+    return (
+        <tokenCTX.Provider value={token}>
+            
+                    <Outlet />
+            
+        </tokenCTX.Provider>
     );
 }
 
