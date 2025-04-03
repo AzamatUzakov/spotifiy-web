@@ -19,7 +19,7 @@ const Footer: React.FC<FooterProps> = () => {
 
                 <div className="flex flex-wrap gap-5 lg: justify-between">
                     <div>
-                        <h3 className="my-text mt-9 mb-3 font-bold text-[16px] ">Компания</h3>
+                        <h3 className="my-text mt-9 mb-3 font-bold text-[16px]">Компания</h3>
                         <a href="#" className="my-text block font-normal text-[14px] mb-1.5 ml-1 text-[#9e928f]">О нас</a>
                         <a href="#" className="my-text block font-normal text-[14px] mb-1.5 ml-1 text-[#9e928f]">Вакансии</a>
                         <a href="#" className="my-text block font-normal text-[14px] mb-1.5 ml-1 text-[#9e928f]">For the Record</a>

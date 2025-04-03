@@ -26,20 +26,23 @@ const playlists = [
     },
 ];
 const Sidebar: React.FC = () => {
-    const [isOpen, setIsOpen] = useState(true); 
+    const [isOpen, setIsOpen] = useState(true);
+
 
     return (
         <ResizablePanel
-            className="hidden w-full h-screen my-text cursor-pointer bg-[#121212] px-3 py-4 rounded-[10px] m-2 lg:block"
+            className="hidden w-full h-screen my-text cursor-pointer bg-[#121212] px-7 py-4 rounded-[10px] m-2 lg:block"
             defaultSize={22}
             maxSize={40}
-            minSize={isOpen ? 10 : 5}
+            minSize={10}
+            collapsible={isOpen}
+            
         >
             <div className="w-full">
                 <div className="flex items-center justify-between w-full">
                     <div
                         className="flex items-center gap-1 cursor-pointer"
-                        onClick={() => setIsOpen(!isOpen)} 
+                        onClick={() => setIsOpen(prev => !prev)}
                     >
                         <TfiLayoutMediaCenterAlt size={20} />
                         <h2 className="font-[700] my-text text-[15px]">Моя медиатека</h2>
