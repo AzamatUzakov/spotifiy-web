@@ -7,16 +7,13 @@ interface Artist {
     name: string;
 }
 
-interface Album {
-    name: string;
-}
-
 interface Track {
     id: string;
     name: string;
-    images: { url: string }[];
-    album: Album;
     artists: Artist[];
+    album: {
+        images: { url: string }[];
+    };
 }
 
 const MyRecamindation: React.FC = () => {
@@ -35,10 +32,8 @@ const MyRecamindation: React.FC = () => {
                 });
 
                 const data = await response.json();
-                console.log(data.items); 
                 const tracksData = data.items.map((item: { track: Track }) => item.track);
                 setTracks(tracksData);
-
             } catch (err) {
                 console.error(err);
             }
@@ -46,39 +41,32 @@ const MyRecamindation: React.FC = () => {
 
         getTracks();
     }, []);
+console.log(tracks);
 
     return (
         <div className="p-4 mt-5">
             <h2 className="text-2xl font-bold mb-4">Ваш плейлист</h2>
-            <div className="flex gap-x-4 overflow-x-auto whitespace-nowrap scroll-smooth snap-x snap-mandatory scrollbar-hidden">
+            <div className="flex overflow-x-auto gap-6 py-4">
                 {tracks.map((track) => (
-                    console.log(track),
-                    
                     <div
                         key={track.id}
-                        className="min-w-[150px] h-[200px] md:min-w-[180px] md:h-[300px] snap-center hover:scale-95 transition-transform cursor-pointer"
-                        >
-                            
+                        className="flex-none w-40 p-2 rounded-lg hover:bg-gray-700 transition-colors duration-200 cursor-pointer group"
+                    >
+                        <div className="relative mb-4">
                             <img
-                                src="https://i.scdn.co/image/ab6761610000e5eb4a21b4760d2ecb7b0dcdc8da"
-                                className="w-[100%] h-[150px] md:h-[180px] rounded-lg object-cover"
-                                alt="naj"
-                            />  
-                      {/*   {track.images.length > 0 ? (
-                            <img
-                                src={track.images[0].url}
+                                src={track.album.images[0].url}
                                 alt={track.name}
-                                className="w-[100%] h-[150px] md:h-[180px] rounded-lg object-cover"
+                                className="w-full aspect-square object-cover rounded shadow-lg group-hover:opacity-80 transition-opacity"
                             />
-                        ) : (
-                            <img
-                                src="https://i.scdn.co/image/ab6761610000e5eb4a21b4760d2ecb7b0dcdc8da"
-                                className="w-[100%] h-[150px] md:h-[180px] rounded-lg object-cover"
-                                alt="naj"
-                            />
-                        )}  */}
-                        <p className="text-start text-[#b3b3b3] text-sm mt-2">{track.name}</p>
-                        <p className="text-start text-[#b3b3b3] text-sm mt-1">
+                            <button className="absolute bottom-2 right-2 bg-green-500 rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0 transition-transform hover:scale-105">
+                                <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M6.3 2.841A1.5 1.5 0 004 4.11v11.78a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <h3 className="font-semibold text-white truncate">{track.name}</h3>
+                        <p className="text-gray-400 text-sm truncate">
                             {track.artists.map((artist) => artist.name).join(", ")}
                         </p>
                     </div>

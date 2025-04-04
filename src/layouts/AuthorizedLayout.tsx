@@ -22,13 +22,14 @@ const AuthorizedLayout: React.FC<AuthorizedLayout> = () => {
             <ResizablePanelGroup direction="horizontal" className="bg-black h-full" >
                 <Sidebar />
                 <ResizableHandle className="hidden lg:flex" />
-               
-                <ResizablePanel className="bg-[#121212] relative rounded-[10px] mt-2 p-4 z-10">
-                    <div className="bg-gradient-to-b from-[#1f3a5e] absolute h-[200px] z-[-1] top-0 left-0 w-full to-[#121212] rounded-[10px]  py-4"></div>
-                  
-                    <Outlet />
-                    <Footer />
 
+                <ResizablePanel className="bg-[#121212] relative rounded-[10px] mt-2 p-4 z-10 h-[87vh]">
+                    <div className="bg-gradient-to-b from-[#1f3a5e] absolute h-[200px] z-[-1] top-0 left-0 w-full to-[#121212] rounded-[10px]  py-4"></div>
+
+                    <div className="h-[100%] overflow-y-scroll">
+                        <Outlet />
+                        <Footer />
+                    </div>
                 </ResizablePanel>
             </ResizablePanelGroup>
 

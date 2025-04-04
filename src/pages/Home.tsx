@@ -6,6 +6,7 @@ import ToggleButtons from "@/components/custom/ToggleButtons";
 import MusicBlocks from "@/components/custom/MusicBlocks";
 import MyRecamindation from "@/components/custom/MyRecamindation";
 import MyAlbum from "@/components/custom/MyAlbum";
+import TopArtist from "@/components/custom/TopArtist";
 
 
 interface HomeProps {
@@ -23,6 +24,7 @@ const Home: React.FC<HomeProps> = () => {
             <MusicBlocks/>
             <ArtistsList />
             <MyRecamindation />
+            <TopArtist/>
             <MyAlbum/>
         </>
 

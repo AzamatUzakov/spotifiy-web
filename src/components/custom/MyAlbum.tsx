@@ -1,63 +1,81 @@
 import { useState, useEffect } from "react";
-import "../../App.css"
+import "../../App.css";
 import { BASE_URL } from "@/export";
+
 interface Artist {
     id: string;
     name: string;
-    popularity: number;
-    genres: string[];
-    images: { url: string }[];
+}
+
+interface Track {
+    id: string;
+    name: string;
+    artists: Artist[];
+    album: {
+        images: { url: string }[];
+        name: string;
+        artists: Artist[];
+    };
 }
 
 const MyAlbum: React.FC = () => {
-    const [artists, setArtists] = useState<Artist[]>([]);
+    const [tracks, setTracks] = useState<Track[]>([]);
 
     const token: string = localStorage.getItem("token") || " ";
 
     useEffect(() => {
-        const getAlbums = async () => {
+        const getTracks = async () => {
             try {
-                const response = await fetch(BASE_URL + "/browse/new-releases", {
+                const response = await fetch(BASE_URL + "/me/albums", {
                     headers: {
                         Authorization: `Bearer ${token}`,
                         "Content-Type": "application/json",
                     },
                 });
 
-                console.log(token, "token-azamat");
-
                 const data = await response.json();
-                console.log(data);
-                setArtists(data.albums.items)
-                
+                setTracks(data.items);
             } catch (err) {
                 console.error(err);
             }
         };
 
-        getAlbums();
-    }, []);
-    console.log(artists);
+        getTracks();
+    }, [token]);
 
     return (
         <div className="p-4">
             <h2 className="text-2xl font-bold mb-4">Ваш альбом</h2>
-          {  <div className="flex gap-x-4 overflow-x-auto whitespace-nowrap scroll-smooth snap-x snap-mandatory scrollbar-hidde">
-                {artists.map((art) => (
-                    <div key={art.id} className="min-w-[150px] md:min-w-[180px]  snap-center hover:scale-96 transition-transform cursor-pointer" >                        {art.images.length > 0 ? (
-                            <img
-                                src={art.images[0].url}
-                                alt={art.name}
-                                className="w-[100%] h-[150px] md:h-[180px] rounded-lg object-cover"
-                            />
-                        ) : <img src="https://i.scdn.co/image/ab6761610000e5eb4a21b4760d2ecb7b0dcdc8da" className="w-[100%] h-[150px] md:h-[180px] rounded-lg object-cover" alt="naj" />
-}
-                        <p className="text-start text-[#b3b3b3] text-sm mt-2">{art.name}</p>
+            <div className="flex overflow-x-auto gap-6 py-4">
+                {tracks.map((track) => (
+                    <div
+                        key={track.id}
+                        className="flex-none w-40 p-2 rounded-lg hover:bg-gray-700 transition-colors duration-200 cursor-pointer group"
+                    >
+                        <div className="relative mb-4">
+                            {track.album && track.album.images && track.album.images[0] && (
+                                <img
+                                    src={track.album.images[0].url}
+                                    alt={track.album.name}
+                                    className="w-full aspect-square object-cover rounded shadow-lg group-hover:opacity-80 transition-opacity"
+                                />
+                            )}
+
+                            <button className="absolute bottom-2 right-2 bg-green-500 rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0 transition-transform hover:scale-105">
+                                <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M6.3 2.841A1.5 1.5 0 004 4.11v11.78a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <h3 className="font-semibold text-white truncate">{track.album.name}</h3>
+                        <p className="text-gray-400 text-sm truncate">
+                            {track.album.artists?.map((artist) => artist.name).join(", ")}
+                        </p>
                     </div>
                 ))}
-            </div>}
+            </div>
         </div>
-
     );
 };
 
