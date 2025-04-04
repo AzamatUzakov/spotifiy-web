@@ -7,7 +7,6 @@ import { IoMdHeart } from "react-icons/io";
 const Playlist: React.FC = () => {
     const [tracks, setTracks] = useState<any[]>([]);
     const [isPlaying, setIsPlaying] = useState(false);
-    const [currentTrack, setCurrentTrack] = useState<string | null>(null);
     const token = localStorage.getItem("token") || "";
 
     useEffect(() => {
@@ -34,16 +33,15 @@ const Playlist: React.FC = () => {
         return `${minutes}:${Number(seconds) < 10 ? '0' : ''}${seconds}`;
     };
 
-
     return (
         <div className="bg-gradient-to-b from-[#39005a93] to-[#121212] text-white min-h-screen py-8">
-            <div className="flex items-end gap-6 mb-8 px-8">
-                <div className="w-48 h-48 bg-gradient-to-br from-purple-600 to-blue-500 flex items-center justify-center rounded-md shadow-2xl">
-                    <IoMdHeart size={70} />
+            <div className="flex flex-col sm:flex-row items-end gap-6 mb-8 px-8">
+                <div className="w-32 h-32 sm:w-48 sm:h-48 bg-gradient-to-br from-purple-600 to-blue-500 flex items-center justify-center rounded-md shadow-2xl">
+                    <IoMdHeart size={40} className="sm:size-20" />
                 </div>
-                <div>
+                <div className="sm:ml-6 mt-6 sm:mt-0">
                     <p className="text-sm uppercase tracking-wider mb-2">Плейлист</p>
-                    <h1 className="text-5xl font-bold mb-4">Сохраненные треки</h1>
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Сохраненные треки</h1>
                     <p className="text-gray-300 mb-2">Все ваши любимые треки в одном месте</p>
                     <div className="flex items-center gap-2 text-sm text-gray-400">
                         <span>Spotify</span>
@@ -52,13 +50,14 @@ const Playlist: React.FC = () => {
                     </div>
                 </div>
             </div>
-            <div className="bg-[#10101056] p-8 bg-opacity-40 rounded-lg overflow-hidden">
+
+            <div className="bg-[#10101056] p-2  md:p-8 bg-opacity-40 rounded-lg overflow-hidden">
 
                 <div className="flex items-center gap-6 mb-8">
                     <button
-                        className="bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg transform transition-transform hover:scale-105"
+                        className="bg-green-500 hover:bg-green-600 text-white rounded-full p-4 pl-5 shadow-lg transform transition-transform hover:scale-105"
                     >
-                        {isPlaying ? <FaPause size={24} /> : <FaPlay size={24} />}
+                        <FaPlay size={24} />
                     </button>
                 </div>
 
@@ -75,19 +74,18 @@ const Playlist: React.FC = () => {
                         className={`grid grid-cols-12 gap-4 p-4 transition-all duration-300 ease-in hover:bg-gray-800 hover:bg-opacity-60 cursor-pointer rounded-2xl`}
                     >
                         <div className="col-span-1 flex items-center">
-
                             <span className="text-gray-400">{index + 1}</span>
                         </div>
                         <div className="col-span-5 flex gap-2">
-                            <img src={track.track.album.images[0].url} alt="dlckdm" className="rounded-sm w-15 h-15" />
-
-                            <div>  <div className="font-medium text-sm text-white">{track.track.name}</div>
+                            <img src={track.track.album.images[0].url} alt="album-art" className="rounded-sm w-12 h-12 sm:w-15 sm:h-15" />
+                            <div>
+                                <div className="font-medium text-sm text-white">{track.track.name}</div>
                                 <div className="text-sm text-gray-400">
                                     {track.track.artists.map((artist) => artist.name).join(", ")}
                                 </div>
                             </div>
                         </div>
-                        <div className="col-span-4 text-[15px] font-semibold text-gray-400">{track.track.album.name}</div>
+                        <div className="col-span-4 text-[13px] sm:text-[15px] font-semibold text-gray-400">{track.track.album.name}</div>
                         <div className="col-span-2 flex items-center justify-end gap-4">
                             <span className="text-gray-400 text-sm font-medium">{formatDuration(track.track.duration_ms)}</span>
                             <button

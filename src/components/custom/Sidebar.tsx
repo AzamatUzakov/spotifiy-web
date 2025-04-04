@@ -41,7 +41,7 @@ const Sidebar: React.FC = () => {
             defaultSize={22}
             maxSize={40}
             minSize={10}
-            collapsible={isOpen}
+            collapsible={true}
         >
             <div className="w-full">
                 <div className="flex items-center justify-between w-full mb-4">

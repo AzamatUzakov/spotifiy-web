@@ -23,7 +23,7 @@ const AuthorizedLayout: React.FC<AuthorizedLayout> = () => {
                 <Sidebar />
                 <ResizableHandle className="hidden lg:flex" />
 
-                <ResizablePanel className="bg-[#121212] relative rounded-[10px] mt-2  z-10 h-[87vh]">
+                <ResizablePanel className="bg-[#121212] relative rounded-[10px] mt-2  ml-2 z-10 h-[87vh]">
                     <div className="bg-gradient-to-b from-[#1f3a5e] absolute h-[200px] z-[-1] top-0 left-0 w-full to-[#121212] rounded-[10px]  py-4"></div>
 
                     <div className="h-[100%] overflow-y-scroll">
@@ -34,9 +34,9 @@ const AuthorizedLayout: React.FC<AuthorizedLayout> = () => {
             </ResizablePanelGroup>
 
 
-            <div className="fixed bottom-0 left-0 w-full bg-black py-2 md:py-0">
+            <div className="fixed z-30 bottom-0 left-0 w-full bg-black py-2 md:py-0">
                 {/* <Player /> */}
-                {/* <Player /> */}
+                 <Player />
                 <Navigate />
 
             </div>
