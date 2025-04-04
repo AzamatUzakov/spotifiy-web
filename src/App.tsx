@@ -4,6 +4,7 @@ import BaseLayout from './layouts/BaseLayout'
 import SignIn from './pages/SignIn'
 import AuthorizedLayout from './layouts/AuthorizedLayout'
 import Home from "@/pages/Home"
+import Playlist from './pages/Playlist'
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
 
         <Route path='/' element={<AuthorizedLayout />}>
           <Route index element={<Home />} />
+          <Route path='tracks' element={<Playlist />} />
         </Route>
 
       </Routes>

@@ -20,12 +20,13 @@ const Home: React.FC<HomeProps> = () => {
     return (
 
         <>
+            <div className="p-4">
             <ToggleButtons />
             <MusicBlocks/>
             <ArtistsList />
             <MyRecamindation />
             <TopArtist/>
-            <MyAlbum/>
+            <MyAlbum/></div>
         </>
 
     );

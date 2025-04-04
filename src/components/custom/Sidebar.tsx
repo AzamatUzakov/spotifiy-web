@@ -6,6 +6,7 @@ import "../../App.css";
 import { BASE_URL } from "@/export";
 import { IoMdHeart } from "react-icons/io";
 import { RiPushpinFill } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
 const Sidebar: React.FC = () => {
     const [isOpen, setIsOpen] = useState(true);
@@ -62,19 +63,22 @@ const Sidebar: React.FC = () => {
                     <button className="bg-[#1f1f1f] text-white h-[30px] text-nowrap text-[12px] px-2 w-full rounded-full">Подкасты и шоу</button>
                 </div>
 
-                <div>
-                    <div className="flex items-center text-white p-2 rounded-lg mt-2 ml-[-10px] transition-all duration-100 ease-in w-full max-w-sm md:max-w-md lg:max-w-lg hover:bg-gray-800">
-                        <div className="w-12 flex items-center justify-center h-12 rounded-[5px] bg-gradient-to-br from-indigo-500 to-purple-300">
-                            <IoMdHeart size={20} />
+                    <div>
+                <Link to={"/tracks"}>
+                        <div className="flex items-center text-white p-2 rounded-lg mt-2 ml-[-10px] transition-all duration-100 ease-in w-full max-w-sm md:max-w-md lg:max-w-lg hover:bg-gray-800">
+                            <div className="w-12 flex items-center justify-center h-12 rounded-[5px] bg-gradient-to-br from-indigo-500 to-purple-300">
+                                <IoMdHeart size={20} />
+                            </div>
+                            <div className="ml-4 flex flex-col justify-center">
+                                <h2 className="text-md font-normal">Любимые треки</h2>
+                                <p className="text-[13px] text-gray-400 flex items-center gap-1"> <RiPushpinFill color="#1cc558" size={15} className="mb-1" />Плейлист ● {tracks.length} треков</p>
+                            </div>
                         </div>
-                        <div className="ml-4 flex flex-col justify-center">
-                            <h2 className="text-md font-normal">Любимые треки</h2>
-                            <p className="text-[13px] text-gray-400 flex items-center gap-1"> <RiPushpinFill color="#1cc558" size={15} className="mb-1" />Плейлист ● {tracks.length} треков</p>
-                        </div>
+                </Link>
                     </div>
-                </div>
 
-                
+
+
 
             </div>
         </ResizablePanel>

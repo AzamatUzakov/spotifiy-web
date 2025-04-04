@@ -60,7 +60,7 @@ const Header: React.FC<HeaderProps> = () => {
 
                         <div className="flex items-center gap-2">
                             <div className="bg-[#1f1f1f] rounded-4xl p-2 hover:bg-[#292929] transition-colors">
-                                <GoHome size={25} color="white" />
+                                <Link to={"/"}>    <GoHome size={25} color="white" /></Link>
                             </div>
 
                             <div className="flex items-center bg-[#1f1f1f] border border-[#3a3a3a] rounded-full px-4 py-1 w-full hover:border-gray-500 transition-colors">
